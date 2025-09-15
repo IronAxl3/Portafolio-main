@@ -1,0 +1,384 @@
+/* ==========================================================================
+   #ANIMATIONS
+   ========================================================================== */
+
+/* Typewriter animation */
+.typewriter {
+    min-height: 2.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.typewriter-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.5rem;
+    background: var(--primary-color);
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Animación de entrada suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Clases de animación */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: fadeInRight 0.6s ease forwards;
+}
+
+/* Retrasos para animaciones en cascada */
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+.fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+.fade-in-up:nth-child(6) { animation-delay: 0.6s; }
+
+/* Animación para las tarjetas de proyecto */
+.project-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para los elementos de la línea de tiempo */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para las habilidades */
+.skill-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.skill-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optimización de rendimiento para animaciones */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .fade-in-up,
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* Mejoras para dispositivos con poca capacidad */
+@media (max-width: 768px) {
+    .fade-in-up {
+        transition-duration: 0.4s;
+    }
+    
+    .fade-in-up.delay-1,
+    .fade-in-up.delay-2,
+    .fade-in-up.delay-3,
+    .fade-in-up.delay-4,
+    .fade-in-up.delay-5 {
+        transition-delay: 0s;
+    }
+}
+
+/* Optimización para dispositivos con modo de ahorro de energía */
+@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+    .fade-in-up,
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .skill-progress {
+        animation: none !important;
+        width: var(--skill-level, 0%) !important;
+    }
+}
+
+/* Mejoras para navegadores WebKit (Safari, Chrome en iOS) */
+@supports (-webkit-touch-callout: none) {
+    .fade-in-up {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: none;
+    }
+    
+    .fade-in-up.animated {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+}
+
+/* Animation Classes */
+.fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.6s ease-out forwards;
+}
+
+/* ===== ENTRADA SUAVE GLOBAL ===== */
+@keyframes popIn {
+  0%   { clip-path: circle(0%);   transform: scale(.9); opacity:0 }
+  100% { clip-path: circle(75%); transform: scale(1);  opacity:1 }
+}
+.pop-in {
+  animation: popIn .8s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+/* ===== PARALLAX MICRO ===== */
+.hero-shape svg {
+  animation: parallax 20s linear infinite;
+}
+@keyframes parallax {
+  0%   { transform: translateX(0) }
+  100% { transform: translateX(-50%) }
+}
+
+/* ===== BARRAS DE HABILIDADES ===== */
+.skill-progress {
+  width: 0;
+  transition: width 1.5s cubic-bezier(.4,1.2,.6,1);
+}
+[data-animate="bar"].in-view .skill-progress {
+  width: var(--w, 0%);
+}
+
+/* ===== BRILLO DIAGONAL ===== */
+.shine{
+  position:relative; overflow:hidden;
+}
+.shine::after{
+  content:''; position:absolute; top:-50%; left:-50%;
+  width:200%; height:200%;
+  background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);
+  transform:rotate(30deg) translateX(-150%);
+  transition:transform .8s ease;
+}
+.shine:hover::after{ transform:rotate(30deg) translateX(150%) }
+
+/* ===== LIFT EN HOVER ===== */
+.lift{
+  transition: transform .4s cubic-bezier(.175,.885,.32,1.275),
+              box-shadow .4s ease;
+}
+.lift:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,.25);
+}
+
+/* ===== PREFERS-REDUCED-MOTION ===== */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important }
+}
+
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+.delay-8 { animation-delay: 0.8s; }
+.delay-9 { animation-delay: 0.9s; }
+.delay-10 { animation-delay: 1s; }
+
+.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+.fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+.fade-in-up:nth-child(6) { animation-delay: 0.6s; }
+.fade-in-up:nth-child(7) { animation-delay: 0.7s; }
+.fade-in-up:nth-child(8) { animation-delay: 0.8s; }
+
+.animated {
+    opacity: 1 !important;
+}
+
+.skill-progress {
+    width: 0;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1.5s ease-in-out;
+}
+
+.animate-bars .skill-progress {
+    animation: fillBar 1.5s ease-in-out forwards;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes morph {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+@keyframes shine {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Animación de relleno de barra */
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: var(--skill-level, 0%); }
+}
+
+/* Entrada escalonada del mural */
+.skills-grid .skill-card{ 
+    animation: muralIn .8s cubic-bezier(.4,0,.2,1) forwards; 
+    opacity:0 
+}
+.skills-grid .skill-card:nth-child(1){animation-delay:.1s}
+.skills-grid .skill-card:nth-child(2){animation-delay:.15s}
+.skills-grid .skill-card:nth-child(3){animation-delay:.2s}
+.skills-grid .skill-card:nth-child(4){animation-delay:.25s}
+.skills-grid .skill-card:nth-child(5){animation-delay:.3s}
+.skills-grid .skill-card:nth-child(6){animation-delay:.35s}
+.skills-grid .skill-card:nth-child(7){animation-delay:.4s}
+.skills-grid .skill-card:nth-child(8){animation-delay:.45s}
+
+@keyframes muralIn{
+    from{ transform:translateY(40px) scale(.9); opacity:0 }
+    to  { transform:translateY(0)   scale(1);   opacity:1 }
+}
+
+/* Al hacer click: pulso de color */
+.skill-card:active::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--c-brand);
+  opacity:.25;
+  border-radius:inherit;
+  animation:pulse .4s ease-out
+}
+@keyframes pulse{
+  from{transform:scale(.8);opacity:.4}
+  to  {transform:scale(1.4);opacity:0}
+}
+
+/* Entrada "onda-luz" */
+.skill-card{
+  opacity:0;
+  animation:waveIn .8s cubic-bezier(.4,0,.2,1) forwards;
+  animation-delay:calc(.1s * var(--i))
+}
+@keyframes waveIn{
+  0%{clip-path:circle(0% at 50% 50%);opacity:0}
+  100%{clip-path:circle(75% at 50% 50%);opacity:1}
+}
+
+/* Glare rápido al hover */
+.skill-card::before{
+  content:'';
+  position:absolute;
+  top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:radial-gradient(circle at center,rgba(255,255,255,.25) 0%,transparent 60%);
+  transform:rotate(30deg) translateX(-150%);
+  transition:transform .6s ease;
+  pointer-events:none
+}
+.skill-card:hover::before{ transform:rotate(30deg) translateX(150%) }

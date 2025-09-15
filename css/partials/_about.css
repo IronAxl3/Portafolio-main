@@ -1,0 +1,55 @@
+/* ==========================================================================
+   #ABOUT
+   ========================================================================== */
+
+.about-content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+    line-height: 1.8;
+}
+
+.about-image {
+    flex: 1;
+    position: relative;
+}
+
+.map-container {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-text {
+        margin-bottom: 2rem;
+    }
+    
+    .about-image {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}

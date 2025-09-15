@@ -1,0 +1,245 @@
+/* ==========================================================================
+   #SKILLS – HORIZONTAL "WOW"
+   ========================================================================== */
+#habilidades { 
+    padding: 6rem 0;
+    background: var(--bg-color);
+    overflow: hidden;
+}
+
+.skills-grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 2rem 0 3rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+.skill-card {
+    --c-brand: #2563eb;
+    flex: 0 0 280px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    scroll-snap-align: center;
+    transform-style: preserve-3d;
+    transition: transform .35s cubic-bezier(.175,.885,.32,1.275),
+               box-shadow .35s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: translateZ(20px) rotateX(10deg) rotateY(-4deg);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+}
+
+/* Icono central */
+.skill-icon {
+    width: 90px;
+    height: 90px;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    border-radius: 50%;
+    background: var(--c-brand);
+    color: #fff;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 30px -10px var(--c-brand);
+    transition: transform .3s ease;
+}
+
+.skill-card:hover .skill-icon { 
+    transform: scale(1.15) rotate(-8deg);
+}
+
+/* Título + nivel */
+.skill-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 0.5rem 0 0.25rem;
+}
+
+.skill-level-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Descripción flotante */
+.skill-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: color-mix(in srgb, var(--c-brand) 12%, transparent);
+    backdrop-filter: blur(8px);
+    padding: 1rem 1.25rem 1.25rem;
+    font-size: .85rem;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--text-color);
+    max-height: 0;
+    opacity: 0;
+    transition: max-height .4s ease, opacity .4s ease, padding .4s ease;
+    border-top: 1px solid var(--c-brand);
+    border-radius: 0 0 20px 20px; /* bordes redondeados abajo */
+}
+
+.skill-card:hover .skill-desc {
+    max-height: 120px;
+    opacity: 1;
+    padding: 1rem 1.25rem 1.5rem;
+}
+
+/* Barra de progreso lateral */
+.skill-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: var(--gray-200);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-bar-inner {
+    width: 100%;
+    height: var(--level);
+    background: var(--c-brand);
+    transition: height 1.2s cubic-bezier(.4,1.2,.6,1) .2s;
+}
+
+.skill-card.in-view .skill-bar-inner { 
+    height: var(--level);
+}
+
+/* Colores oficiales */
+.skill-card[data-tech="python"]     { --c-brand: #3776AB; }
+.skill-card[data-tech="postgresql"] { --c-brand: #336791; }
+.skill-card[data-tech="mysql"]      { --c-brand: #4479A1; }
+.skill-card[data-tech="linux"]      { --c-brand: #FCC624; }
+.skill-card[data-tech="html"]       { --c-brand: #E34C26; }
+.skill-card[data-tech="css"]        { --c-brand: #1572B6; }
+.skill-card[data-tech="js"]         { --c-brand: #F7DF1E; }
+.skill-card[data-tech="django"]     { --c-brand: #092E20; }
+
+/* Partículas de fondo (vanilla) */
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--c-brand);
+    border-radius: 50%;
+    opacity: .4;
+    animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.8); }
+}
+
+/* Scroll-indicator */
+.skills-grid::after {
+    content: '';
+    display: block;
+    width: 40px;
+    flex: 0 0 40px;
+}
+
+/* Mobile → vertical stack < 640px */
+@media (max-width: 640px) {
+    .skills-grid { 
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0 2rem;
+    }
+    
+    .skill-card { 
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+    }
+    
+    .skill-card:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .skill-card { 
+        transition: none;
+        transform: none !important;
+    }
+    
+    .particle { 
+        animation: none;
+        opacity: 0;
+    }
+    
+    .skill-bar-inner {
+        transition: none;
+    }
+}
+
+/* FIX 1: wrapper debe permitir overflow horizontal */
+.skills .u-wrapper { 
+    overflow: visible; 
+}
+
+/* FIX 2: grid con scroll funcional */
+.skills-grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 2rem 0 4rem;          /* espacio extra abajo para descripciones */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;         /* Firefox */
+    scrollbar-color: var(--primary-600) transparent;
+}
+.skills-grid::-webkit-scrollbar {
+    height: 6px;
+}
+.skills-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+.skills-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-600);
+    border-radius: 3px;
+}
+
+/* FIX 3: card altura automática para que la desc flote sin cortarse */
+.skill-card {
+    --c-brand: #2563eb;
+    flex: 0 0 260px;               /* anchura fija, altura dinámica */
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    scroll-snap-align: center;
+    padding: 2rem 1.5rem 4rem;     /* padding inferior grande */
+}
