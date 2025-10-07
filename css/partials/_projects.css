@@ -1,7 +1,3 @@
-/* ==========================================================================
-   #PROJECTS
-   ========================================================================== */
-
 #proyectos.projects {
     background-color: var(--bg-secondary);
     padding: var(--spacing-20) 0;
@@ -25,7 +21,6 @@
     line-height: var(--line-height-relaxed);
 }
 
-/* Sombra más suave en claro */
 #proyectos.projects { 
     background: var(--bg-secondary); 
 }
@@ -33,16 +28,13 @@
 #proyectos .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2.5rem; /* más aire entre tarjetas */
+    gap: 2.5rem; 
     width: 100%;
 }
 
-/* Dark mode – mismo tono que el resto de secciones */
 [data-theme="dark"] #proyectos.projects { 
     background: var(--bg-color); 
 }
-
-/* ---------- Tarjeta Proyecto – contenido ordenado ---------- */
 #proyectos .project-card {
   background: var(--bg-color);
   border: 1px solid var(--border-color);
@@ -59,7 +51,6 @@
   box-shadow: var(--shadow-xl);
 }
 
-/* Imagen – mostrar parte superior */
 #proyectos .project-image {
   position: relative;
   height: 200px;
@@ -69,14 +60,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; /* clave: muestra zona superior */
+  object-position: top; 
   transition: transform .5s;
 }
 #proyectos .project-card:hover .project-image img {
   transform: scale(1.05);
 }
 
-/* Overlay hover */
 #proyectos .project-overlay {
   position: absolute;
   inset: 0;
@@ -91,7 +81,6 @@
   opacity: 1;
 }
 
-/* Links del overlay */
 #proyectos .project-links {
   display: flex;
   gap: 1rem;
@@ -113,7 +102,6 @@
   transform: scale(1.1);
 }
 
-/* Contenido – orden lógico */
 #proyectos .project-content {
   padding: 1.75rem;
   display: flex;
@@ -144,7 +132,6 @@
   flex: 1;
 }
 
-/* Características con iconos */
 #proyectos .project-features {
   display: flex;
   flex-wrap: wrap;
@@ -166,7 +153,6 @@
   font-size: .85rem;
 }
 
-/* Tecnologías */
 #proyectos .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -189,7 +175,6 @@
   font-size: .9rem;
 }
 
-/* Botón CTA llamativo */
 #proyectos .btn-secondary {
   align-self: flex-start;
   padding: .6rem 1.25rem;
@@ -216,7 +201,6 @@
   transform: translateX(3px);
 }
 
-/* Filtros */
 #proyectos .project-filters {
     display: flex;
     justify-content: center;
@@ -244,7 +228,6 @@
     border-color: var(--primary-color);
 }
 
-/* Media Queries para proyectos */
 @media screen and (max-width: 1024px) {
     #proyectos .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -286,7 +269,6 @@
     }
 }
 
-/* Mejoras para dispositivos táctiles */
 @media (hover: none) {
     #proyectos .project-card {
         transform: none !important;
@@ -303,7 +285,6 @@
     }
 }
 
-/* Soporte para orientación horizontal en móviles */
 @media screen and (max-height: 500px) and (orientation: landscape) {
     #proyectos .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -314,7 +295,6 @@
     }
 }
 
-/* Ajustes para pantallas muy grandes */
 @media screen and (min-width: 1600px) {
     #proyectos .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -325,10 +305,9 @@
     }
 }
 
-/* Iconos profesionales por feature */
-.feature[data-feature="responsive"] i::before { content: "\f10b"; } /* fa-mobile-alt */
-.feature[data-feature="realtime"] i::before   { content: "\f1da"; } /* fa-clock */
-.feature[data-feature="learning"] i::before   { content: "\f19d"; } /* fa-graduation-cap */
-.feature[data-feature="menu"] i::before       { content: "\f2e7"; } /* fa-utensils */
-.feature[data-feature="video"] i::before      { content: "\f03d"; } /* fa-video */
-.feature[data-feature="language"] i::before   { content: "\f1ab"; } /* fa-language */
+.feature[data-feature="responsive"] i::before { content: "\f10b"; } 
+.feature[data-feature="realtime"] i::before   { content: "\f1da"; } 
+.feature[data-feature="learning"] i::before   { content: "\f19d"; } 
+.feature[data-feature="menu"] i::before       { content: "\f2e7"; } 
+.feature[data-feature="video"] i::before      { content: "\f03d"; } 
+.feature[data-feature="language"] i::before   { content: "\f1ab"; } 

@@ -1,18 +1,8 @@
-/* ==========================================================================
-   #BASE
-   ========================================================================== */
-
-/**
- * 1. Asegurar que el documento ocupe al menos toda la altura de la pantalla
- * 2. Suavizado de fuentes para mejor legibilidad
- * 3. Establecer el tamaño de fuente base para el documento
- */
 :root {
     --initial-opacity: 0;
     --initial-visibility: hidden;
 }
 
-/* Reset y normalización */
 *,
 *::before,
 *::after {
@@ -41,7 +31,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Tipografía */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: var(--font-weight-bold);
@@ -100,14 +89,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Imágenes responsivas */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Listas */
 ul, ol {
     padding-left: var(--spacing-6);
     margin-bottom: var(--spacing-4);
@@ -196,7 +183,7 @@ section {
     color: var(--gray-100);
 }
 
-/* Clase para controlar la visibilidad inicial */
+/* visibilidad  */
 .js-loading *,
 .js-loading *:before,
 .js-loading *:after {
@@ -213,14 +200,12 @@ section {
     transition: opacity var(--transition-normal), visibility var(--transition-normal);
 }
 
-/* Asegurar que las secciones sean visibles por defecto */
 section {
     visibility: visible !important;
     opacity: 1 !important;
     transition: opacity var(--transition-normal), visibility var(--transition-normal);
 }
 
-/* Estilos base para el documento HTML */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -232,15 +217,12 @@ html {
     height: 100%;
 }
 
-/* Estilos base para el cuerpo del documento */
-/* ===== CONTENEDOR UNIVERSAL ===== */
 .u-wrapper {
   width: min(90%, 1280px);
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
 
-/* ===== CENTRADO ABSOLUTO ===== */
 .u-center {
   display: grid;
   place-items: center;
@@ -260,7 +242,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Contenedor principal */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -323,13 +304,11 @@ h6 {
     margin-bottom: 0.5rem;
 }
 
-/* Párrafos */
 p {
     margin-bottom: 1.5rem;
     line-height: 1.7;
 }
 
-/* Enlaces */
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -341,14 +320,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Imágenes */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Listas */
 ul, ol {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
@@ -358,7 +335,6 @@ li {
     margin-bottom: 0.5rem;
 }
 
-/* Tablas */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -376,7 +352,6 @@ th {
     font-weight: 600;
 }
 
-/* Formularios */
 input,
 button,
 select,
@@ -393,7 +368,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-/* Utilidades */
 .text-center {
     text-align: center;
 }
@@ -450,7 +424,6 @@ input[type="submit"] {
 .pl-3 { padding-left: 1.5rem; }
 .pr-3 { padding-right: 1.5rem; }
 
-/* Clases de utilidad para mostrar/ocultar elementos */
 .hidden {
     display: none !important;
 }
@@ -459,7 +432,6 @@ input[type="submit"] {
     display: block !important;
 }
 
-/* Clases para el tema oscuro */
 [data-theme="dark"] {
     --text-color: #f3f4f6;
     --text-muted: #9ca3af;
@@ -469,7 +441,6 @@ input[type="submit"] {
     --heading-color: #ffffff;
 }
 
-/* Estilos para dispositivos móviles */
 @media (max-width: 767px) {
     html {
         font-size: 15px;

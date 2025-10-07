@@ -1,8 +1,7 @@
-/* ---------- Symmetric social bar ---------- */
 .social-links {
   display: flex;
   flex-direction: column;
-  gap: .75rem;          /* even spacing */
+  gap: .75rem;         
   width: 100%;
 }
 
@@ -10,7 +9,7 @@
   --h: 48px;
   height: var(--h);
   padding: 0 1rem;
-  border-radius: 8px;            /* rounded rect */
+  border-radius: 8px;            
   font-size: .95rem;
   font-weight: 500;
   text-decoration: none;
@@ -21,7 +20,7 @@
   border: 1px solid var(--border-color);
   color: var(--text-color);
   transition: all .25s ease;
-  /* full clickable area */
+  
   line-height: 1;
 }
 
@@ -29,11 +28,9 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 16px -4px rgba(0,0,0,.15);
 }
-
-/* Brand colours (subtle) */
+   
 .social-btn.linkedin:hover { background: #0a66c2; color: #fff; }
 .social-btn.github:hover   { background: #24292e; color: #fff; }
 .social-btn.instagram:hover{ background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; }
 
-/* Dark hover */
 [data-theme="dark"] .social-btn:hover { border-color: transparent; }

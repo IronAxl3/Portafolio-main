@@ -1,6 +1,3 @@
-/* ==========================================================================
-   #SKILLS – HORIZONTAL "WOW"
-   ========================================================================== */
 #habilidades { 
     padding: 6rem 0;
     background: var(--bg-color);
@@ -60,7 +57,7 @@
     transform: scale(1.15) rotate(-8deg);
 }
 
-/* Título + nivel */
+/* Título y nivel */
 .skill-name {
     font-size: 1.4rem;
     font-weight: 700;
@@ -74,7 +71,7 @@
     margin-bottom: 1.5rem;
 }
 
-/* Descripción flotante */
+/* Descripción  */
 .skill-desc {
     position: absolute;
     bottom: 0;
@@ -100,7 +97,7 @@
     padding: 1rem 1.25rem 1.5rem;
 }
 
-/* Barra de progreso lateral */
+/* Barra de progreso */
 .skill-bar {
     position: absolute;
     left: 0;
@@ -123,7 +120,7 @@
     height: var(--level);
 }
 
-/* Colores oficiales */
+/* Colorores */
 .skill-card[data-tech="python"]     { --c-brand: #3776AB; }
 .skill-card[data-tech="postgresql"] { --c-brand: #336791; }
 .skill-card[data-tech="mysql"]      { --c-brand: #4479A1; }
@@ -133,7 +130,6 @@
 .skill-card[data-tech="js"]         { --c-brand: #F7DF1E; }
 .skill-card[data-tech="django"]     { --c-brand: #092E20; }
 
-/* Partículas de fondo (vanilla) */
 .particles {
     position: absolute;
     inset: 0;
@@ -156,7 +152,6 @@
     50% { transform: translateY(-30px) scale(1.8); }
 }
 
-/* Scroll-indicator */
 .skills-grid::after {
     content: '';
     display: block;
@@ -164,7 +159,6 @@
     flex: 0 0 40px;
 }
 
-/* Mobile → vertical stack < 640px */
 @media (max-width: 640px) {
     .skills-grid { 
         flex-direction: column;
@@ -183,8 +177,6 @@
         margin-bottom: 0;
     }
 }
-
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .skill-card { 
         transition: none;
@@ -201,12 +193,9 @@
     }
 }
 
-/* FIX 1: wrapper debe permitir overflow horizontal */
 .skills .u-wrapper { 
     overflow: visible; 
 }
-
-/* FIX 2: grid con scroll funcional */
 .skills-grid {
     display: flex;
     gap: 1.5rem;
@@ -228,10 +217,9 @@
     border-radius: 3px;
 }
 
-/* FIX 3: card altura automática para que la desc flote sin cortarse */
 .skill-card {
     --c-brand: #2563eb;
-    flex: 0 0 260px;               /* anchura fija, altura dinámica */
+    flex: 0 0 260px;               
     min-height: 320px;
     display: flex;
     flex-direction: column;
@@ -241,5 +229,5 @@
     border: 1px solid var(--border-color);
     border-radius: 20px;
     scroll-snap-align: center;
-    padding: 2rem 1.5rem 4rem;     /* padding inferior grande */
+    padding: 2rem 1.5rem 4rem;     
 }
